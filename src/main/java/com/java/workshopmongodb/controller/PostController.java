@@ -1,5 +1,6 @@
 package com.java.workshopmongodb.controller;
 
+import com.java.workshopmongodb.controller.util.URL;
 import com.java.workshopmongodb.model.Post;
 import com.java.workshopmongodb.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,13 @@ public class PostController {
     public ResponseEntity<Post> findById(@PathVariable String id) {
         Post post = postService.findById(id);
         return ResponseEntity.ok().body(post);
+    }
+
+    @GetMapping("/titlesearch")
+    public ResponseEntity<List<Post>> findByTitle(@RequestParam(value = "text", defaultValue = "") String text) {
+        text = URL.decodeParam(text);
+        List<Post> list = postService.findByTitle(text);
+        return ResponseEntity.ok().body(list);
     }
 
     @PostMapping
