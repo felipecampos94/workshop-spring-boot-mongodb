@@ -1,6 +1,7 @@
 package com.java.workshopmongodb.controller;
 
 import com.java.workshopmongodb.dto.UserDTO;
+import com.java.workshopmongodb.model.Post;
 import com.java.workshopmongodb.model.User;
 import com.java.workshopmongodb.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -53,4 +54,11 @@ public class UserController {
         user = userService.update(user);
         return ResponseEntity.ok().body(new UserDTO(user));
     }
+
+    @GetMapping("/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User user = userService.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
+    }
+
 }
