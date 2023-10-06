@@ -1,4 +1,4 @@
-# Workshop de Spring Boot com MongoDB usando Java 17
+# Workshop de Spring Boot com MongoDB
 
 Este repositório contém o material do workshop "Spring Boot com MongoDB usando Java 17". Neste workshop, exploramos a integração do Spring Boot com o MongoDB, utilizando a versão mais recente do Java, a Java 17. Aprenderemos a criar aplicativos modernos, eficientes e escaláveis usando essas tecnologias.
 
